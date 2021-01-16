@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df90a741-dac5-4c0b-9da7-73201158641b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/GetMessageThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/TotalThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/ChatThreadWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/ChatThreadWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread$1ButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread$1ButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/liaotian/cn/edu/hcnu/client/LoginThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/edu/hcnu/client/ChatThreadWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/ChatThreadWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/edu/hcnu/client/GetMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/GetMessageThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/edu/hcnu/client/LoginThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/LoginThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/edu/hcnu/util/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/util/MD5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/edu/hcnu/client/TotalThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/edu/hcnu/client/TotalThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +150,7 @@
       <workItem from="1610695224119" duration="1506000" />
       <workItem from="1610698691951" duration="3347000" />
       <workItem from="1610702085866" duration="2165000" />
-      <workItem from="1610756155674" duration="17785000" />
+      <workItem from="1610756155674" duration="19259000" />
     </task>
     <task id="LOCAL-00001" summary="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket">
       <created>1610762106283</created>
@@ -165,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610762106283</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示">
+      <created>1610789598441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610789598441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +174,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket" />
+    <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示" />
+    <option name="LAST_COMMIT_MESSAGE" value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示" />
   </component>
   <component name="WindowStateProjectService">
     <state x="333" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610780721846">
@@ -192,10 +194,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="508" y="76" key="#ojdbc6.jar/0.0.1600.860@0.0.1600.860" timestamp="1610761834409" />
-    <state x="334" y="18" key="CommitChangelistDialog2" timestamp="1610762103783">
+    <state x="334" y="0" key="CommitChangelistDialog2" timestamp="1610789596222">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="334" y="18" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1610762103783" />
+    <state x="334" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1610789596222" />
     <state x="537" y="174" key="FileChooserDialogImpl" timestamp="1610761966085">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -208,22 +210,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="675" y="320" width="273" height="220" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1610762236055" />
-    <state width="1560" height="206" key="GridCell.Tab.0.bottom" timestamp="1610789404485">
+    <state width="1557" height="206" key="GridCell.Tab.0.bottom" timestamp="1610790837773">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1560" height="206" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1610789404485" />
-    <state width="1560" height="206" key="GridCell.Tab.0.center" timestamp="1610789404485">
+    <state width="1557" height="206" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1610790837773" />
+    <state width="1557" height="206" key="GridCell.Tab.0.center" timestamp="1610790837773">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1560" height="206" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1610789404485" />
-    <state width="1560" height="206" key="GridCell.Tab.0.left" timestamp="1610789404485">
+    <state width="1557" height="206" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1610790837773" />
+    <state width="1557" height="206" key="GridCell.Tab.0.left" timestamp="1610790837773">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1560" height="206" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1610789404485" />
-    <state width="1560" height="206" key="GridCell.Tab.0.right" timestamp="1610789404485">
+    <state width="1557" height="206" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1610790837773" />
+    <state width="1557" height="206" key="GridCell.Tab.0.right" timestamp="1610790837773">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1560" height="206" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1610789404485" />
+    <state width="1557" height="206" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1610790837773" />
     <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1610704681360">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -248,10 +250,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="343" y="8" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1610761923069" />
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610762305359">
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610789638304">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1610762305359" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1610789638304" />
     <state x="480" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1610756219761">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

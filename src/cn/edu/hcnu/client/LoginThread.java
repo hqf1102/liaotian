@@ -103,12 +103,13 @@ public class LoginThread extends Thread {
                     if (MD5.checkpassword(password,pas)){
                         System.out.println("登录成功");
                         loginf.setVisible(false);
-                        InetAddress inetAddress=InetAddress.getLocalHost();
+                        InetAddress inetAddress=InetAddress.getLocalHost();/**获取登录者的电脑的IP地址**/
                         String IP=inetAddress.getHostAddress();
                         System.out.println(IP);
                         int bort=8888;
                         DatagramSocket datagramSocket=null;
-                        while(true){//处理端口占用
+                        /**以下while是处理端口占用**/
+                        while(true){
                             try {
                                 datagramSocket =new DatagramSocket(bort);
                                 break;
@@ -117,6 +118,7 @@ public class LoginThread extends Thread {
 //                                ex.printStackTrace();
                             }
                         }
+                        /**进行登录者数据的更新**/
                         String sql1="update users set ip=?,port=?,status=? where username=?";
                         con = DriverManager.getConnection(url,name,passwords);
                         ps=con.prepareStatement(sql1);

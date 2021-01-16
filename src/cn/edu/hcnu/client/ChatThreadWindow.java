@@ -20,7 +20,7 @@ public class ChatThreadWindow {
     JFrame f;
      JTextArea ta;
     private JTextField tf;
-     int total;// 在线人数统计
+    static int total;// 在线人数统计
       DatagramSocket ds;
      String username;
     public ChatThreadWindow(String username, DatagramSocket ds) {
@@ -50,11 +50,9 @@ public class ChatThreadWindow {
         f.getContentPane().add(p, BorderLayout.SOUTH);
         f.getContentPane().add(sp);
         f.setVisible(true);
-        GetMessageThread getMessageThread=new GetMessageThread(this);
-        getMessageThread.start();
-
-        showXXXIntoChatRppm();
-
+        GetMessageThread getMessageThread=new GetMessageThread(this);/**接收消息的线程*/
+        getMessageThread.start();/**启用线程*/
+        showXXXIntoChatRppm();/**进行广播登录人员*/
     }
     public void showXXXIntoChatRppm(){//广播
         String url="jdbc:oracle:thin:@localhost:1521:orcl";
@@ -65,6 +63,10 @@ public class ChatThreadWindow {
         ResultSet rs=null;
         PreparedStatement ps=null;
         try {
+            /**
+             * 查询所有在线状态的用户
+             * 除了自身以为进行广播
+             * **/
             String sql="select username,ip,port from users where status='online'";
             con = DriverManager.getConnection(url,name,passwords);
             ps=con.prepareStatement(sql);
@@ -74,6 +76,9 @@ public class ChatThreadWindow {
 
                 if(!usernames.equals(username)){
                     cb.addItem(usernames);
+                    /**
+                     * TotalThread这里的线程主要是为了刷新登录者的栏目信息
+                     * */
                     TotalThread totalThread=new TotalThread(f,username);
                     totalThread.start();
                    String ip=rs.getString("ip");
@@ -91,8 +96,6 @@ public class ChatThreadWindow {
                     DatagramSocket datagramSocket=new DatagramSocket();
                     datagramSocket.send(datagramPacket);
                 }
-
-
 
             }
         } catch (SQLException e) {

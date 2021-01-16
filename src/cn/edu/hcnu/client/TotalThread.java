@@ -10,7 +10,10 @@ public class TotalThread extends Thread{
         this.f = f;
         this.username=username;
     }
-
+/**
+ * 该线程的功能是进行统计登录在线的人数
+ * 并进行对应标题提示登录人数的刷新
+ * */
     public  void run(){
         String url="jdbc:oracle:thin:@localhost:1521:orcl";
         String name="root";

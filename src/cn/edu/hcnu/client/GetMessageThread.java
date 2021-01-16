@@ -19,6 +19,9 @@ public class GetMessageThread extends Thread {
         this.f=ch.f;
         this.username1=ch.username;
     }
+    /**
+     * 该线程的功能是进行接收消息
+     * */
     public void run() {
         try {
             while (true) {
@@ -32,6 +35,9 @@ public class GetMessageThread extends Thread {
                 if(message.contains("进入聊天室")){
                     message=message.replace("进入聊天室","");
                     cb.addItem(message);
+                    /**
+                     * TotalThread这里的线程主要是为了之前登录者的的栏目信息
+                     * */
                     TotalThread totalThread=new TotalThread(f,username1);
                     totalThread.start();
                 }
