@@ -8,10 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import javax.swing.JButton;
@@ -106,27 +103,29 @@ public class LoginThread extends Thread {
                     if (MD5.checkpassword(password,pas)){
                         System.out.println("登录成功");
                         loginf.setVisible(false);
-                        ChatThreadWindow chatThreadWindow=new ChatThreadWindow();
                         InetAddress inetAddress=InetAddress.getLocalHost();
                         String IP=inetAddress.getHostAddress();
                         System.out.println(IP);
-                        int bort=1688;
-                        while(true){
+                        int bort=8888;
+                        DatagramSocket datagramSocket=null;
+                        while(true){//处理端口占用
                             try {
-                                ServerSocket serverSocket=new ServerSocket(bort);
+                                datagramSocket =new DatagramSocket(bort);
                                 break;
                             } catch (IOException ex) {
                                 bort+=1;
-                                ex.printStackTrace();
+//                                ex.printStackTrace();
                             }
                         }
-                        String sql1="update users set ip=?,port=? where username=?";
+                        String sql1="update users set ip=?,port=?,status=? where username=?";
                         con = DriverManager.getConnection(url,name,passwords);
                         ps=con.prepareStatement(sql1);
                         ps.setString(1,IP);
                         ps.setInt(2,bort);
-                        ps.setString(3,username);
+                        ps.setString(3,"online");
+                        ps.setString(4,username);
                         ps.executeUpdate();
+                        ChatThreadWindow chatThreadWindow1=new ChatThreadWindow(username,datagramSocket);
                     }else{
                         System.out.println("登录失败");
                     }
