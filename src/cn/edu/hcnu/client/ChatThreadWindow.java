@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.net.*;
 import java.sql.*;
+import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -48,13 +49,13 @@ public class ChatThreadWindow {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode()==KeyEvent.VK_ENTER){
+                if(e.getKeyCode()==KeyEvent.VK_ENTER){//回车键的判断
                     String str=(String)cb.getSelectedItem();
-                    System.out.println(str);
                     if(str.equals("All")){//群发
                         showinfoQun();
                     }else{
                         showsifa(str);
+                        System.out.println("条件2");
                     }
                     tf.setText("");
                 }
@@ -83,7 +84,6 @@ public class ChatThreadWindow {
         showXXXInChatRoom();//提示正在聊天
     }
     public void showsifa(String na){//单播
-        System.out.println("jinru guangb");
         String url="jdbc:oracle:thin:@localhost:1521:orcl";
         String name="root";
         String passwords="1234";
@@ -94,10 +94,12 @@ public class ChatThreadWindow {
             String sql="select username,ip,port from users where status='online' and username=?";
             con = DriverManager.getConnection(url,name,passwords);
             ps=con.prepareStatement(sql);
-            ps.setString(1,na);
+            ps.setString(1,(String)cb.getSelectedItem());
+            System.out.println((String)cb.getSelectedItem());
             rs=ps.executeQuery();
 //            ta.append("我说："+tf.getText()+"\n");
             if(rs.next()){
+                System.out.println("条件1");
                 String usernames=rs.getString("username");
                     String ip=rs.getString("ip");
                     int post=rs.getInt("port");
@@ -257,4 +259,5 @@ public class ChatThreadWindow {
             e.printStackTrace();
         }
     }
+
 }
