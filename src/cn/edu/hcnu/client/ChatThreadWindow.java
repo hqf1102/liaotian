@@ -1,6 +1,8 @@
 package cn.edu.hcnu.client;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.net.*;
 import java.sql.*;
@@ -19,7 +21,7 @@ public class ChatThreadWindow {
      JComboBox cb;
     JFrame f;
      JTextArea ta;
-    private JTextField tf;
+     JTextField tf;
     static int total;// 在线人数统计
       DatagramSocket ds;
      String username;
@@ -38,6 +40,31 @@ public class ChatThreadWindow {
         JScrollPane sp = new JScrollPane(ta);
         ta.setEditable(false);
         tf = new JTextField();
+        tf.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_ENTER){
+                    String str=(String)cb.getSelectedItem();
+                    System.out.println(str);
+                    if(str.equals("All")){//群发
+                        showinfoQun();
+                    }else{
+                        showsifa(str);
+                    }
+                    tf.setText("");
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
         cb = new JComboBox();
         cb.addItem("All");
         JButton jb = new JButton("私聊窗口");
@@ -53,12 +80,137 @@ public class ChatThreadWindow {
         GetMessageThread getMessageThread=new GetMessageThread(this);/**接收消息的线程*/
         getMessageThread.start();/**启用线程*/
         showXXXIntoChatRppm();/**进行广播登录人员*/
+        showXXXInChatRoom();//提示正在聊天
+    }
+    public void showsifa(String na){//单播
+        System.out.println("jinru guangb");
+        String url="jdbc:oracle:thin:@localhost:1521:orcl";
+        String name="root";
+        String passwords="1234";
+        Connection con= null;
+        ResultSet rs=null;
+        PreparedStatement ps=null;
+        try {
+            String sql="select username,ip,port from users where status='online' and username=?";
+            con = DriverManager.getConnection(url,name,passwords);
+            ps=con.prepareStatement(sql);
+            ps.setString(1,na);
+            rs=ps.executeQuery();
+//            ta.append("我说："+tf.getText()+"\n");
+            if(rs.next()){
+                String usernames=rs.getString("username");
+                    String ip=rs.getString("ip");
+                    int post=rs.getInt("port");
+                    byte [] ipB=new byte[4];
+                    String ips[]=ip.split("\\.");
+                    for (int i=0;i<ips.length;i++){
+                        ipB[i]=(byte) Integer.parseInt(ips[i]);
+                    }
+                    String message=username+"悄悄的对你说了："+tf.getText();
+                    byte [] m =message.getBytes();
+                    DatagramPacket datagramPacket=new DatagramPacket(m,m.length);
+                    datagramPacket.setAddress(InetAddress.getByAddress(ipB));
+                    datagramPacket.setPort(post);
+                    DatagramSocket datagramSocket=new DatagramSocket();
+                    datagramSocket.send(datagramPacket);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showinfoQun(){//广播
+        System.out.println("jinru guangb");
+        String url="jdbc:oracle:thin:@localhost:1521:orcl";
+        String name="root";
+        String passwords="1234";
+        Connection con= null;
+        ResultSet rs=null;
+        PreparedStatement ps=null;
+        try {
+            /**
+             * 查询所有在线状态的用户
+             * 除了自身以为进行广播
+             * **/
+            String sql="select username,ip,port from users where status='online'";
+            con = DriverManager.getConnection(url,name,passwords);
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            ta.append("我说："+tf.getText()+"\n");
+
+            while(rs.next()){
+                String usernames=rs.getString("username");
+                if(!usernames.equals(username)){
+                    /**
+                     * TotalThread这里的线程主要是为了刷新登录者的栏目信息
+                     * */
+                    String ip=rs.getString("ip");
+                    int post=rs.getInt("port");
+                    byte [] ipB=new byte[4];
+                    String ips[]=ip.split("\\.");
+                    for (int i=0;i<ips.length;i++){
+                        ipB[i]=(byte) Integer.parseInt(ips[i]);
+                    }
+                    String message=username+"说了："+tf.getText();
+                    byte [] m =message.getBytes();
+                    DatagramPacket datagramPacket=new DatagramPacket(m,m.length);
+                    datagramPacket.setAddress(InetAddress.getByAddress(ipB));
+                    datagramPacket.setPort(post);
+                    DatagramSocket datagramSocket=new DatagramSocket();
+                    datagramSocket.send(datagramPacket);
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showXXXInChatRoom(){//广播
+        String url="jdbc:oracle:thin:@localhost:1521:orcl";
+        String name="root";
+        String passwords="1234";
+        Connection con= null;
+        ResultSet rs=null;
+        PreparedStatement ps=null;
+        try {
+            /**
+             * 查询所有在线状态的用户
+             * 除了自身以为进行广播
+             * **/
+            String sql="select username,ip,port from users where status='online'";
+            con = DriverManager.getConnection(url,name,passwords);
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                String usernames=rs.getString("username");
+                if(!usernames.equals(username)){
+                    cb.addItem(usernames);
+                    TotalThread totalThread=new TotalThread(f,username);
+                    totalThread.start();
+                    String message=usernames+"正在聊天室";
+                     ta.append(message+'\n');
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public void showXXXIntoChatRppm(){//广播
         String url="jdbc:oracle:thin:@localhost:1521:orcl";
         String name="root";
         String passwords="1234";
-
         Connection con= null;
         ResultSet rs=null;
         PreparedStatement ps=null;
@@ -75,12 +227,9 @@ public class ChatThreadWindow {
                 String usernames=rs.getString("username");
 
                 if(!usernames.equals(username)){
-                    cb.addItem(usernames);
                     /**
                      * TotalThread这里的线程主要是为了刷新登录者的栏目信息
                      * */
-                    TotalThread totalThread=new TotalThread(f,username);
-                    totalThread.start();
                    String ip=rs.getString("ip");
                     int post=rs.getInt("port");
                     byte [] ipB=new byte[4];
