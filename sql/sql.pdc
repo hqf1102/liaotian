@@ -7,8 +7,8 @@ create table users(
   status varchar2(20)
 )
 ;
-insert into users values('AAAAAAAA','hqf','o971N9aAzcUJ5RrB8fjxGQ==','','');
-insert into users values('BBBBBBBB','lisi','kL3Y+beBhpTLVEFxQOkuiw==','','');
+insert into users values('AAAAAAAA','hqf','o971N9aAzcUJ5RrB8fjxGQ==','','','');
+insert into users values('BBBBBBBB','lisi','kL3Y+beBhpTLVEFxQOkuiw==','','','');
 
 alter table users status varchar2(20);
 

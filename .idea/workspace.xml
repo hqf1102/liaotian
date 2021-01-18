@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df90a741-dac5-4c0b-9da7-73201158641b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sql/sql.pdc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/sql.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/sql/sql.pdc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +156,7 @@
       <workItem from="1610756155674" duration="19326000" />
       <workItem from="1610791156237" duration="49000" />
       <workItem from="1610844550808" duration="7944000" />
-      <workItem from="1610936486614" duration="481000" />
+      <workItem from="1610936486614" duration="573000" />
     </task>
     <task id="LOCAL-00001" summary="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket">
       <created>1610762106283</created>
@@ -186,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610936765628</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示&#10;群发消息和私发消息&#10;数据表的创建">
+      <created>1610937014091</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610937014091</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +203,8 @@
     <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket" />
     <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示" />
     <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示&#10;群发消息和私发消息" />
-    <option name="LAST_COMMIT_MESSAGE" value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示&#10;群发消息和私发消息" />
+    <MESSAGE value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示&#10;群发消息和私发消息&#10;数据表的创建" />
+    <option name="LAST_COMMIT_MESSAGE" value="聊天室&#10;使用UDP，TCP进行通信&#10;使用数据库&#10;多线程&#10;socket&#10;线程统计登录的人数&#10;登录人显示&#10;群发消息和私发消息&#10;数据表的创建" />
   </component>
   <component name="WindowStateProjectService">
     <state x="333" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610780721846">
@@ -219,10 +227,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="508" y="76" key="#ojdbc6.jar/0.0.1600.860@0.0.1600.860" timestamp="1610761834409" />
-    <state x="334" y="0" key="CommitChangelistDialog2" timestamp="1610936762879">
+    <state x="334" y="0" key="CommitChangelistDialog2" timestamp="1610937013106">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="334" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1610936762879" />
+    <state x="334" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1610937013106" />
     <state x="537" y="174" key="FileChooserDialogImpl" timestamp="1610936658668">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -275,10 +283,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="343" y="8" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1610936661496" />
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610936780731">
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610937020310">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1610936780731" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1610937020310" />
     <state x="480" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1610936515651">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
