@@ -1,0 +1,38 @@
+create table users(
+  id varchar2(32) primary key,
+  username varchar2(20) not null,
+  password varchar2(24) not null,
+  ip varchar2(32),
+  port number(5),
+  status varchar2(20)
+)
+;
+insert into users values('AAAAAAAA','hqf','o971N9aAzcUJ5RrB8fjxGQ==','','');
+insert into users values('BBBBBBBB','lisi','kL3Y+beBhpTLVEFxQOkuiw==','','');
+
+alter table users status varchar2(20);
+
+update users set ip=null,port=null,status=null;
+insert into users values('CCCCCCCC','zs','7FQ/jGe7PLjKoov/ez9Nmg==','','','');
+
+create table RoomInfo(
+     Rno varchar2(10) primary key,
+     Rtype varchar2(15) not null,
+     Rprice number(4) not null,
+     Rfloor number(3) not null,
+     Toward varchar2(10) not null
+);
+insert into RoomInfo values('R105','标准1',198,2,'西南');
+insert into RoomInfo values('R106','豪华1',198,2,'正北');
+insert into RoomInfo values('R109','高级2',315,3,'正北');
+insert into RoomInfo values('R110','VIP套房',540,6,'正西');
+insert into RoomInfo values('R111','豪华1',198,3,'正西');
+insert into RoomInfo values('R112','高级2',315,3,'正北');
+insert into RoomInfo values(
+('R105','标准1',198,2,'西南'),
+('R106','豪华1',198,2,'正北'),
+('R109','高级2',315,3,'正北'),
+('R110','VIP套房',540,6,'正西'),
+('R111','豪华1',198,3,'正西'),
+('R112','高级2',315,3,'正北')
+);
